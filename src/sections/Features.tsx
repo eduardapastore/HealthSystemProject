@@ -1,8 +1,10 @@
-export const Footer = () => {
+export const Features = () => {
     return (
-        <div className="tittle">
-            <h1 className="text-5xl md:text-4xl font-bold tracking-tighter">Conheça nossas Funcionalidades!</h1>
-        </div>
-    )
-
-}
+      <div className="">
+        <h1>Veja nossas Funcionalidades!</h1>
+      </div>
+    );
+  };
+  
+  export default Features;
+  
