@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
-import { DM_Sans } from "next/font/google";
+import { Sora } from "next/font/google";
 import "./globals.css";
 import { twMerge } from "tailwind-merge";
 
-const dmSans = DM_Sans({ subsets: ["latin"] });
+const sora = Sora({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Light Saas Landing Page",
-  description: "Template created by Frontend Tribe",
+  title: "Health System",
 };
 
 export default function RootLayout({
@@ -16,8 +15,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="relative">
-      <body className={twMerge(dmSans.className, "antialiased bg-[#EAEEFE]")}>
+    <html lang="pt-br" className="relative">
+      <body className={twMerge(sora.className, "antialiased bg-blue-100")}>
         {children}
       </body>
     </html>

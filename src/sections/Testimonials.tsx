@@ -15,10 +15,10 @@ import React from "react";
 
 const testimonials = [
   {
-    text: "As a seasoned designer always on the lookout for innovative tools, Framer.com instantly grabbed my attention.",
+    text: "“A plataforma é extremamente fácil de usar. Consegui agendar minhas consultas em minutos!”",
     imageSrc: avatar1.src,
-    name: "Jamie Rivera",
-    username: "@jamietechguru00",
+    name: "Ana Carolina Paiva",
+    username: "@anacarolinap_",
   },
   {
     text: "Our team's productivity has skyrocketed since we started using this tool. ",
@@ -72,7 +72,6 @@ const testimonials = [
 
 const firstColumn = testimonials.slice(0, 3);
 const secondColumn = testimonials.slice(3, 6);
-const thirdColumn = testimonials.slice(6, 9);
 
 const TestimonialsColumn = (props: {
   className?: string;
@@ -122,17 +121,10 @@ const TestimonialsColumn = (props: {
 
 export const Testimonials = () => {
   return (
-    <section className="bg-white">
+    <section className="bg-blue-100">
       <div className="container">
         <div className="section-heading">
-          <div className="flex justify-center">
-            <div className="tag">Testimonials</div>
-          </div>
-          <h2 className="section-title mt-5">What our users say</h2>
-          <p className="section-description mt-5">
-            From intuitive design to powerful features, our app has become an
-            essential tool for users around the world.
-          </p>
+          <h2 className="section-title mt-10">O que nossos usuários dizem!</h2>
         </div>
         <div className="flex justify-center gap-6 mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] max-h-[738px] overflow-hidden">
           <TestimonialsColumn testimonials={firstColumn} duration={15} />
@@ -140,11 +132,6 @@ export const Testimonials = () => {
             testimonials={secondColumn}
             className="hidden md:block"
             duration={19}
-          />
-          <TestimonialsColumn
-            testimonials={thirdColumn}
-            className="hidden lg:block"
-            duration={17}
           />
         </div>
       </div>

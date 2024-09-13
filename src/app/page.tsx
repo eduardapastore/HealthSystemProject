@@ -1,20 +1,27 @@
 import { Header } from "@/sections/Header";
 import { Hero } from "@/sections/Hero";
-import { LogoTicker } from "@/sections/LogoTicker";
-import { ProductShowcase } from "@/sections/ProductShowcase";
-import { Pricing } from "@/sections/Pricing";
+import { AboutUs } from "@/sections/AboutUs";
 import { Testimonials } from "@/sections/Testimonials";
 import { CallToAction } from "@/sections/CallToAction";
 import { Footer } from "@/sections/Footer";
+import bg from "@/assets/bgimg.png"
 
 export default function Home() {
   return (
     <>
-      <Header />
-      <Hero />
-      <LogoTicker />
-      <ProductShowcase />
-      <Pricing />
+      <div className="items-center bg-no-repeat"
+      style={{
+        backgroundImage: `url(${bg.src})`,
+        backgroundSize: 'cover', // Faz a imagem cobrir a área da div
+        backgroundPosition: 'center', // Centraliza a imagem
+        backgroundAttachment: 'fixed', // Adiciona o efeito parallax
+        height: '700px', // Define uma altura específica para a div
+      }}
+      >
+          <Header />
+          <Hero />
+      </div>
+      <AboutUs />
       <Testimonials />
       <CallToAction />
       <Footer />
