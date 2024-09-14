@@ -14,12 +14,11 @@ export const Footer = () => {
           <Image src={logo} height={40} alt="SaaS logo" className="relative" />
         </div>
         <nav className="flex flex-col md:flex-row md:justify-center gap-6 mt-6">
-          <a href="#">About</a>
-          <a href="#">Features</a>
-          <a href="#">Customers</a>
-          <a href="#">Pricing</a>
-          <a href="#">Help</a>
-          <a href="#">Careers</a>
+          <a href="#Inicio">Início</a>
+          <a href="#Sobre nos">Sobre nós</a>
+          <a href="#Features">Funcionalidades</a>
+          <a href="#Feedbacks">Feedbacks</a>
+          <a href="#">Ajuda</a>
         </nav>
         <div className="flex justify-center gap-6 mt-6">
           <SocialX />
@@ -29,7 +28,7 @@ export const Footer = () => {
           <SocialYoutube />
         </div>
         <p className="mt-6">
-          &copy; 2024 Your Company, Inc. All rights reserved.
+          &copy; 2024 Health System, Inc. All rights reserved.
         </p>
       </div>
     </footer>

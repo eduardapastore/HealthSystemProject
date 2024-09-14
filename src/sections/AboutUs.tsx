@@ -2,7 +2,7 @@
 
 export const AboutUs = () => {
   return (
-    <section className="py-50 relative z-10 -mt-30 bg-blue-100 shadow-lg p-8 mx-auto max-w-4xl rounded-xl items-center " style={{ marginTop: '-10rem' }}>
+    <section id="Sobre nos" className="py-50 relative z-10 -mt-30 bg-blue-100 shadow-lg p-8 mx-auto max-w-4xl rounded-xl items-center " style={{ marginTop: '-10rem' }}>
           <h1 className="text-center
         section-title bg-gradient-to-b from-black to-[#001E80] text-transparent bg-clip-text mt-6">Quem somos?</h1>
           <p className="text-lg text-center mb">

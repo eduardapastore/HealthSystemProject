@@ -6,6 +6,7 @@ import { CallToAction } from "@/sections/CallToAction";
 import { Footer } from "@/sections/Footer";
 import { Features } from '@/sections/Features';
 import bg from "@/assets/bgimg.png"
+import bg2 from "@/assets/bgimg2.png"
 
 export default function Home() {
   return (
@@ -25,7 +26,17 @@ export default function Home() {
       <AboutUs />
       <Features />
       <Testimonials />
-      <CallToAction />
+      <div className="items-center bg-no-repeat" 
+      style={{
+        backgroundImage: `url(${bg2.src})`,
+        backgroundSize: 'cover', // Faz a imagem cobrir a área da div
+        backgroundPosition: 'center', // Centraliza a imagem
+        backgroundAttachment: 'fixed', // Adiciona o efeito parallax
+        height: '600px', // Define uma altura específica para a div
+      }}
+      >
+        <CallToAction />
+      </div>
       <Footer />
     </>
   );

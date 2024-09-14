@@ -121,7 +121,7 @@ const TestimonialsColumn = (props: {
 
 export const Testimonials = () => {
   return (
-    <section className="bg-blue-100">
+    <section id="Feedbacks" className="bg-blue-100">
       <div className="container">
         <div className="section-heading">
           <h2 className="section-title mt-10">O que nossos usuários dizem!</h2>

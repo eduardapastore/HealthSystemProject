@@ -3,9 +3,8 @@
 export const Hero = () => {
 
   return (
-    <section
-    >
-      <div className="container py-5 mt-20">
+    <section>
+      <div id="Inicio" className="container py-5 mt-20">
         <div className="md:flex items-center">
           <div className="md:w-[478px]">
             <h1 className="text-5xl md:text-4xl font-bold tracking-tighter bg-gradient-to-b from-black to-[#001E80] text-transparent bg-clip-text mt-6">

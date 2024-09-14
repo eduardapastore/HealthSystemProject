@@ -14,22 +14,19 @@ export const CallToAction = () => {
   return (
     <section
       ref={sectionRef}
-      className="bg-gradient-to-b from-white to-[#D2DCFF] py-24 overflow-x-clip"
+      className=" py-24 overflow-x-clip"
     >
       <div className="container">
         <div className="section-heading relative">
-          <h2 className="section-title">Sign up for free today</h2>
+          <h2 className="section-title">Pronto para experimentar essa inovação?</h2>
           <p className="section-description mt-5">
-            Celebrate the joy of accomplishment with an app designed to track
-            your progress and motivate your efforts.
+          Transforme sua experiência de saúde com nossa plataforma.
+           Agende uma consulta, acesse resultados, e mantenha-se informado, tudo em um só lugar.
           </p>
 
         </div>
-        <div className="flex gap-2 mt-10 justify-center">
-          <button className="btn btn-primary">Get for free</button>
-          <button className="btn btn-text gap-1">
-            <span>Learn more</span>
-          </button>
+        <div className="flex gap-2 mt-10 mb-10 justify-center">
+          <button className="btn btn-primary mt-5 bg-blue-900 text-white text-xl px-6 py-4 rounded-full font-medium inline-flex hover:scale-110 transform transition-transform duration-300">Cadastre-se agora!</button>
         </div>
       </div>
     </section>
