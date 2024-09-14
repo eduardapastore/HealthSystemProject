@@ -4,7 +4,7 @@ import MenuIcon from "@/assets/menu.svg";
 
 export const Header = () => {
   return (
-    <header id="Inicio" className="fixed top-0 left-0 w-full backdrop-blur-sm z-20">
+    <header  className="fixed top-0 left-0 w-full backdrop-blur-sm z-20">
       <div className="py-5">
         <div className="container">
           <div className="flex items-center justify-between">
