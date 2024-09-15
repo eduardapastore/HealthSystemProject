@@ -21,19 +21,19 @@ const testimonials = [
     username: "@anacarolinap_",
   },
   {
-    text: "“Ter acesso aos resultados online fez toda a diferença na minha experiência de tratamento.”",
+    text: "Ter acesso aos resultados online fez toda a diferença na minha experiência de tratamento.",
     imageSrc: avatar2.src,
     name: "João Smith",
     username: "@jjsmith",
   },
   {
-    text: "“A facilidade de marcar minhas consultas em qualquer lugar é uma das minhas funções favoritas!”",
+    text: "A facilidade de marcar minhas consultas em qualquer lugar é uma das minhas funções favoritas!",
     imageSrc: avatar3.src,
     name: "Morgan Lima",
     username: "@morganleewhiz",
   },
   {
-    text: "I was amazed at how quickly we were able to integrate this app into our workflow.",
+    text: "A interface do sistema é muito intuitiva e fácil de navegar. Mesmo para quem não tem muita experiência com tecnologia, todas as funções são claras e acessíveis, facilitando o uso por qualquer pessoa.",
     imageSrc: avatar4.src,
     name: "Carla Jordana",
     username: "@carlaj",

@@ -1,6 +1,5 @@
 import Image from "next/image";
 import logo from "@/assets/logohospital.png";
-import SocialX from "@/assets/social-x.svg";
 import SocialInsta from "@/assets/social-insta.svg";
 import SocialLinkedIn from "@/assets/social-linkedin.svg";
 import SocialPin from "@/assets/social-pin.svg";
@@ -21,7 +20,6 @@ export const Footer = () => {
           <a href="#">Ajuda</a>
         </nav>
         <div className="flex justify-center gap-6 mt-6">
-          <SocialX />
           <SocialInsta />
           <SocialLinkedIn />
           <SocialPin />

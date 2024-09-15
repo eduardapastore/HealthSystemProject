@@ -1,10 +1,10 @@
-import { Header } from "@/sections/Header";
-import { Hero } from "@/sections/Hero";
-import { AboutUs } from "@/sections/AboutUs";
-import { Testimonials } from "@/sections/Testimonials";
-import { CallToAction } from "@/sections/CallToAction";
-import { Footer } from "@/sections/Footer";
-import { Features } from '@/sections/Features';
+import { Header } from "@/sections/landingpage/Header";
+import { Hero } from "@/sections/landingpage/Hero";
+import { AboutUs } from "@/sections/landingpage/AboutUs";
+import { Testimonials } from "@/sections/landingpage/Testimonials";
+import { CallToAction } from "@/sections/landingpage/CallToAction";
+import { Footer } from "@/sections/landingpage/Footer";
+import { Features } from '@/sections/landingpage/Features';
 import bg from "@/assets/bgimg.png"
 import bg2 from "@/assets/bgimg2.png"
 
