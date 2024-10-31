@@ -8,18 +8,18 @@ import bglogo from '../assets/logohospital.png';
  position: relative;
  overflow: hidden;
  width: 100%;
- height: 100vw;
+ height: auto;
  max-width: 100%;
- min-height: 400px;
+ min-height: 600px;
  `;
 
  export const SignUpContainer = styled.div`
   position: relative;
   top: 0;
-  height: 100%;
+  height: 50%;
   transition: all 0.6s ease-in-out;
   left: 0;
-  width: 50%;
+  width: 100%;
   opacity: 0;
   z-index: 1;
   ${props => props.signinIn !== true ? `
@@ -36,7 +36,7 @@ import bglogo from '../assets/logohospital.png';
  height: 100%;
  transition: all 0.6s ease-in-out;
  left: 0;
- width: 50%;
+ width: 100%;
  z-index: 2;
  ${props => (props.signinIn !== true ? `transform: translateX(100%);` : null)}
  `;
@@ -133,7 +133,7 @@ ${props => (props.signinIn !== true ? `transform: translateX(50%);` : null)}
      padding: 0 40px;
      text-align: center;
      top: 0;
-     height: 25%;
+     height: 50%;
      width: 50%;
      transform: translateX(0);
      transition: transform 0.6s ease-in-out;
