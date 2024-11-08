@@ -6,14 +6,7 @@ const nextConfig = {
       rule.test?.test?.(".svg")
     );
 
-// next.config.js
-const isProd = process.env.NODE_ENV === 'production';
-
-module.exports = {
-  basePath: isProd ? '/HealthSystemProject' : '',
-  assetPrefix: isProd ? '/HealthSystemProject' : '',
-};
-
+    // next.config.mjs
 
     config.module.rules.push(
       // Reapply the existing rule, but only for svg imports ending in ?url

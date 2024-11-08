@@ -12,8 +12,8 @@ const Login = () => {
 
     return (
         <div className={twMerge(sora.className, "flex flex-col items-center")}>
-            <h2>{signIn ? "Sign In" : "Sign Up"}</h2>
-            {/* Outros elementos do login ou registro */}
+            <h2 className=" text-blue-800 ">{signIn ? "Sign In" : "Sign Up"}</h2>
+            
             <button onClick={() => toggle(!signIn)}>
                 {signIn ? "Switch to Sign Up" : "Switch to Sign In"}
             </button>
