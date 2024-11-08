@@ -2,24 +2,24 @@ import styled from 'styled-components';
 import bglogo from '../assets/logohospital.png';
 
  export const Container = styled.div`
- background-color: #DFD9F1;
+ background-color: #fff;
  border-radius: 10px;
  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
  position: relative;
  overflow: hidden;
  width: 100%;
- height: auto;
+ height: 50vw;
  max-width: 100%;
- min-height: 600px;
+ min-height: 300px;
  `;
 
  export const SignUpContainer = styled.div`
   position: relative;
   top: 0;
-  height: 50%;
+  height: 100%;
   transition: all 0.6s ease-in-out;
   left: 0;
-  width: 100%;
+  width: 50%;
   opacity: 0;
   z-index: 1;
   ${props => props.signinIn !== true ? `
@@ -36,7 +36,9 @@ import bglogo from '../assets/logohospital.png';
  height: 100%;
  transition: all 0.6s ease-in-out;
  left: 0;
- width: 100%;
+ width: 50%;
+ align-items: center;
+ justify-content: center;
  z-index: 2;
  ${props => (props.signinIn !== true ? `transform: translateX(100%);` : null)}
  `;
@@ -48,7 +50,7 @@ import bglogo from '../assets/logohospital.png';
  justify-content: center;
  flex-direction: column;
  padding: 0 50px;
- height: 50%;
+ height: 100%;
  text-align: center;
  `;
  
@@ -60,15 +62,17 @@ import bglogo from '../assets/logohospital.png';
  export const Input = styled.input`
  background-color: #eee;
  border: none;
- padding: 12px 15px;
+ border-radius: 16px;
+ padding: 16px 10px;
  margin: 8px 0;
  width: 100%;
+ margin: 16px;
  `;
  
  export const Button = styled.button`
     border-radius: 20px;
-    border: 1px solid #ff4b2b;
-    background-color: #ff4b2b;
+    border: 1px solid #211847;
+    background-color: #211847;
     color: #ffffff;
     font-size: 12px;
     font-weight: bold;
@@ -133,7 +137,7 @@ ${props => (props.signinIn !== true ? `transform: translateX(50%);` : null)}
      padding: 0 40px;
      text-align: center;
      top: 0;
-     height: 50%;
+     height: 100%;
      width: 50%;
      transform: translateX(0);
      transition: transform 0.6s ease-in-out;
@@ -156,6 +160,7 @@ ${props => (props.signinIn !== true ? `transform: translateX(50%);` : null)}
    line-height: 20px;
    letter-spacing: 0.5px;
    margin: 20px 0 30px
+   padding: 10px;
  `;
 
  export const Bgimage = styled.div`

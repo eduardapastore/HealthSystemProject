@@ -1,5 +1,3 @@
-import { Calendar, FileText, Star, ChevronRight } from 'lucide-react';
-
 
 //importar css
 import './styles/HomePage.css';
@@ -18,13 +16,12 @@ const HomePage = () => {
         <h2>Menu</h2>
         <ul>
           <li><a href="#">Home</a></li>
-          <li><a href="#">Agendamentos</a></li>
+          <li><a href="/Agendamento1">Agendamentos</a></li>
           <li><a href="#">Resultados</a></li>
           <li><a href="#">Noticias</a></li>
           <li><a href="#">Avaliações</a></li>
         </ul>
         <button className="exit-button">
-          <ChevronRight size={46} />
           <span>Sair</span>
         </button>
       </div>
@@ -41,16 +38,16 @@ const HomePage = () => {
               </div>
               <div className="rating">
                 <div><img src={`${api || 'https://img.freepik.com/vector-gratis/icono-usuario_126283-435.jpg?size=338&ext=jpg'}`} alt="foto do médico" /></div>
-                <Star size={16} fill="yellow" color="yellow" />
+                
                 <span>4.8</span>
               </div>
             </div>
             <div className="appointment-details">
-              <Calendar size={16} />
+             
               <span>18 SET, 9:00</span>
             </div>
             <div className="appointment-details">
-              <FileText size={16} />
+              
               <span>Rua da Alegria, 123</span>
             </div>
           </div>
@@ -99,7 +96,7 @@ const HomePage = () => {
             <button>Leia mais</button> */}
             <div className="ajax" >
               {/* Fazer um ajax aqui */
-                <iframe src="https://g1.globo.com/mundo/" style={{ height: "100vh", width: "200px" }}></iframe>
+                <iframe src="https://g1.globo.com/saude/" style={{ height: "50vh", width: "25vh" }}></iframe>
               }
             {/* </div> */}
           </div>
