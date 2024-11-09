@@ -19,7 +19,7 @@ export const Header = () => {
               <a href="#Features" className="hover:scale-110 transform font-semibold transition-transform duration-300">Funcionalidades</a>
               <a href="#Feedbacks" className="hover:scale-110 transform transition-transform font-semibold duration-300">Feedbacks</a>
 
-              <Link href="/Login" className="bg-blue-800 text-white px-4 py-2 rounded-full font-medium inline-flex items-center justify-center hover:scale-110 transform transition-transform duration-300">
+              <Link href="/LoginPage" className="bg-blue-800 text-white px-4 py-2 rounded-full font-medium inline-flex items-center justify-center hover:scale-110 transform transition-transform duration-300">
                 Login
               </Link>
             </nav>

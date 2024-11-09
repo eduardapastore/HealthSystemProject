@@ -1,5 +1,5 @@
-import { Calendar, User, Star, ChevronDown } from 'lucide-react';
 import user from '../assets/user.png'
+import './styles/Agendamento1.css'
 
 const AppointmentCard = ({ specialty, date, time, doctor, rating }) => (
   <div className="appointment-card">
