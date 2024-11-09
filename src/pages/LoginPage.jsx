@@ -1,74 +1,71 @@
-//link do video base da pagina de login https://youtu.be/d79TqHpSY3M?si=9bPpr55uFoKB3IT6
-import { useState } from "react";
-import * as Components from './styleLoginPage';
-import { FaFacebook, FaGoogle, FaInstagram } from "react-icons/fa";
-import Link from 'next/link';
-import { Sora } from "next/font/google";
-import { twMerge } from 'tailwind-merge';
 
-const sora = Sora({ subsets: ["latin"] });
+import { useState, useEffect } from "react";
+import './styles/LoginPage.css';
+import Inputmask from "inputmask"; // Importando corretamente o Inputmask
+import Link from "next/link";
 
 export const LoginPage = () => {
-  const [signIn, toggle] = useState(true)
+  const [signIn, toggleSignIn] = useState(true); // Estado para alternar entre Login e Cadastro
+
+  useEffect(() => {
+    // Aplica a máscara ao CPF
+    Inputmask("999.999.999-99").mask(document.getElementById("cpf-login"));
+    Inputmask("999.999.999-99").mask(document.getElementById("cpf-cadastro"));
+  }, []); // O array vazio garante que o efeito será executado apenas uma vez
+
+  const handleToggleForm = () => {
+    toggleSignIn(!signIn); // Alterna o formulário entre Login e Cadastro
+  };
+
   return (
-    <Components.Container className={twMerge(sora.className, "antialiased bg-blue-100")}>
-            <Components.Bgimage>
-            </Components.Bgimage>
-              <Components.SignUpContainer signinIn={signIn}>
-                  <Components.Form>
-                      <Components.Title>Criar Cadastro</Components.Title>
-                      <Components.Input type='text' placeholder='Name' />
-                      <Components.Input type='number' placeholder='CPF' />
-                      <Components.Input type='date' placeholder='Data de Nascimento' />
-                      <Components.Input type='email' placeholder='Email' />
-                      <Components.Input type='password' placeholder='Password' />
-                      <Components.Button>
-                        <a href="/HomePage">ENTRAR</a>
-                      </Components.Button>
-                  </Components.Form>
-              </Components.SignUpContainer>
+    <div className="container">
+      {/* O fundo roxo que muda de lugar */}
+      <div
+        className="background-roxo"
+        style={{
+          transform: signIn ? 'translateX(100%)' : 'translateX(0)', // Muda a posição com base no estado
+        }}
+      />
 
-              <Components.SignInContainer signinIn={signIn}>
-                   <Components.Form>
-                       <Components.Title>Entrar</Components.Title>
-                       <Components.Input type='email' placeholder='Email' />
-                       <Components.Input type='password' placeholder='Password' />
-                       <Components.Anchor href='#'>Esqueceu sua senha?</Components.Anchor>
-                        <Components.Button>
-                            <a href="">ENTRAR</a>
-                        </Components.Button>
-                   </Components.Form>
-              </Components.SignInContainer>
+      <div className="flex">
+        {/* Formulário de Login */}
+        <div className={`login ${signIn ? 'active' : 'inactive'}`}>
+          <h2>Bem-Vindo de Volta!</h2>
 
-              <Components.OverlayContainer signinIn={signIn}>
-                  <Components.Overlay signinIn={signIn}>
+          <input type="text" id="cpf-login" name="cpf" placeholder="CPF" required />
 
-                  <Components.LeftOverlayPanel signinIn={signIn}>
-                      <Components.Title>Seja Bem Vindo de Volta!</Components.Title>
-                      <Components.Paragraph>
-                          ou faça login com
-                          <br />
-                          <FaFacebook />
-                          <FaGoogle />
-                          <FaInstagram />
-                      </Components.Paragraph>
-                      <Components.GhostButton onClick={() => toggle(true)}>
-                          Entrar
-                      </Components.GhostButton>
-                      </Components.LeftOverlayPanel>
 
-                      <Components.RightOverlayPanel signinIn={signIn}>
-                        <Components.Title>Olá, seja bem vindo!</Components.Title>
-                        <Components.Paragraph>
-                            Cadastre-se e junte-se a nós
-                        </Components.Paragraph>
-                            <Components.GhostButton onClick={() => toggle(false)}>
-                                cadastrar
-                            </Components.GhostButton> 
-                      </Components.RightOverlayPanel>
-                  </Components.Overlay>
-              </Components.OverlayContainer>
-          </Components.Container>
+          <input type="password" id="senha" name="senha" required placeholder="Senha" />
+
+          
+            <Link href="/HomePage">
+                <button>LOGIN</button>
+            </Link>
+          
+
+          <a href="#" onClick={handleToggleForm}>Ou Cadastre-se</a>
+        </div>
+
+        {/* Formulário de Cadastro */}
+        <div className={`cadastro ${signIn ? 'inactive' : 'active'}`}>
+            <h2>Bem-Vindo!</h2>
+
+          <input type="text" id="cpf-cadastro" name="cpf" placeholder="CPF" required />
+
+          <input type="text" id="nome" name="nome" required placeholder="Nome" />
+
+          <input type="date" id="data-nascimento" name="data-nascimento" placeholder="Data de Nascimento" required />
+
+          <input type="password" id="senha-cadastro" name="senha" placeholder="Senha" required />
+
+          <Link href="/HomePage">
+            <button>CADASTRE-SE</button>
+          </Link>
+
+          <a href="#" onClick={handleToggleForm}>Já tem conta? Faça login</a>
+        </div>
+      </div>
+    </div>
   );
 };
 

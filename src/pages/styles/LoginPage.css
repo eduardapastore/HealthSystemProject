@@ -1,0 +1,147 @@
+
+/* Estilos gerais */
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600&display=swap');
+
+* {
+  --font: 'Sora', sans-serif;
+  --bg-color: #DFD9F1;
+  --btn-color: #211847;
+  --bg-secondary: #4037A0;  /* Cor roxa */
+  --shadow-color: #21184752;
+  --bg-disabled: #f0f0f0; /* Cor de fundo cinza para o formulário não ativo */
+}
+
+html{
+    font-family: var(--font);
+    background-color: var(--bg-color);
+}
+
+/* Contêiner principal com fundo roxo que alterna de lugar */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  height: 100vh;
+  position: relative;
+  padding: 0 20px;
+}
+
+/* Fundo roxo que vai se mover de acordo com o formulário ativo */
+.background-roxo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-color: var(--bg-secondary); /* Cor de fundo roxa */
+  transition: transform 0.3s ease; /* Suaviza a transição */
+}
+
+/* Flexbox para exibir os formulários ao lado */
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 150px;
+  position: relative;
+}
+
+/* Formulários de Login e Cadastro */
+.login, .cadastro {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+/* Estilos do título e campos de formulário */
+h2 {
+  font-size: 2rem;
+  text-align: center;
+}
+
+label {
+  font-size: 14px;
+  font-weight: bold;
+  box-shadow: #21184752;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="CPF"] {
+  padding: 16px;
+  font-size: 14px;
+  border: none;
+  border-radius: 16px;
+  margin-bottom: 1rem;
+}
+
+button {
+  padding: 1rem;
+  background-color: var(--btn-color);
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  border-radius: 32px;
+  cursor: pointer;
+  transition: .4s;
+}
+
+button:hover {
+    transform: scale(1.10);
+}
+
+a {
+  text-align: center;
+  font-size: 14px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Alternando o fundo roxo entre os formulários */
+.login.active,
+.cadastro.active {
+  z-index: 1; /* Garante que o fundo roxo se sobreponha ao formulário */
+  h2{
+    color: gray;
+}
+    a{
+        text-decoration: none;
+        color: gray;
+    }
+    button{
+        background-color: gray;
+    }
+    input[type="text"],
+    input[type="password"],
+    input[type="date"],
+    input[type="CPF"] {
+    padding: 16px;
+    font-size: 14px;
+    margin-bottom: 2rem;
+    background-color: rgba(128, 128, 128, 0.334);
+    }
+}
+
+.login.hidden,
+.cadastro.hidden {
+  display: none;
+
+}
+
+/* Seção não ativa (fundo cinza) */
+.login.inactive,
+.cadastro.inactive {
+  background-color: var(--bg-disabled); /* Cor cinza para o formulário inativo */
+}
