@@ -34,9 +34,9 @@ export const LoginPage = () => {
                        <Components.Input type='email' placeholder='Email' />
                        <Components.Input type='password' placeholder='Password' />
                        <Components.Anchor href='#'>Esqueceu sua senha?</Components.Anchor>
-                       <a href="/HomePage">
-                        <Components.Button>ENTRAR</Components.Button>
-                       </a>
+                        <Components.Button>
+                            <a href="">ENTRAR</a>
+                        </Components.Button>
                    </Components.Form>
               </Components.SignInContainer>
 
