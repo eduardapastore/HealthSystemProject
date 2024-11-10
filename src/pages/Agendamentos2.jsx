@@ -1,6 +1,7 @@
 import { Calendar, Star, ChevronUp } from 'lucide-react';
-import './styles/TelaAgendamentos2.css';
-import imaggastro from '../assets/image-gastro.png'
+import './styles/Agendamentos2.css';
+import Link from 'next/link';
+
 const DashboardLayout = () => {
   return (
     <div className="dashboard">
@@ -56,9 +57,7 @@ const DashboardLayout = () => {
 
             <div className="doctor-info">
               <div className="doctor-profile">
-                <div className="avatar">
-                  <img src={imaggastro} alt="imagem do gastrologista" />
-                </div>
+
                 <div className="doctor-details">
                   <p className="doctor-name">Luis Anjos - CRM 022345</p>
                   <div className="rating-container">

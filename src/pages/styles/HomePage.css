@@ -4,24 +4,25 @@
 * {
   --font: 'Sora', sans-serif;
   --bg-color: #DFD9F1;
+  --bg-color-faded: #dfd9f139;
   --btn-color: #211847;
-  --bg-secondary: #4037A0;  /* Cor roxa */
+  --bg-secondary: #4037A0;
   --shadow-color: #21184752;
-  --bg-disabled: #f0f0f0; /* Cor de fundo cinza para o formulário não ativo */
   --bgnews: #4037a052;
 }
 
-html {
-  font-family: var(--font);
-  background-color: var(--bg-color);
-  justify-content: space-between;
-  align-items: center;
-  margin: 2rem;
+.flex{
+  display: flex;
 }
 
-.flex {
+html, body {
+  font-family: var(--font);
+  background-color: var(--bg-color);
   display: flex;
-  gap: 10vh;
+  justify-content: center;
+  align-items: center;
+  margin: 1%;
+  height: 100vh;
 }
 
 li, a {
@@ -31,34 +32,36 @@ li, a {
 
 .menu {
   color: var(--bg-secondary);
-  max-width: 20%;
+  width: 20%;
   margin-top: 40px;
 }
 
 .menu h1 {
-  margin-bottom: 24px;
+  margin-bottom: 64px;
   font-weight: 600;
   font-size: 24px;
 }
 
 .menu .logout {
-  margin-top: 30px;
+  margin-top: 100px;
+  font-size: 18px;
 }
 
 .menu ul {
-  margin-bottom: 5%;
+  margin-bottom: 16px;
   color: var(--btn-color);
   font-size: 18px;
+  padding: 1rem;
   list-style-type: none;
-  text-decoration: none;
   transition: color 0.2s, transform 0.2s, padding-left 0.2s;
 }
 
 .menu ul:hover {
-  transform: scale(1.05); /* Aumenta levemente o tamanho */
+  transform: scale(1.05);
   font-weight: 600;
-  color: var(--bg-secondary); /* Muda a cor para roxo */
-  padding-left: 10px; /* Adiciona um deslocamento à esquerda para o efeito */
+  color: var(--bg-secondary);
+  background-color: #4037a052;
+  padding-left: 10px;
 }
 
 .menu ul a {
@@ -66,30 +69,28 @@ li, a {
   text-decoration: none;
 }
 
-.menulayout {
-  margin-bottom: 15%;
-}
-
+/* Card de notícias */
 .newscontainer {
-  max-width: 60%;
-}
-
-/* Adicionando um pequeno espaçamento e layout no card de notícias */
-.newscard {
-  margin-bottom: 20px;
-  max-width: 20%;
+  width: 18%;
   border-radius: 10px;
   padding: 15px;
   background: var(--bgnews);
+  align-items: center;
+  justify-content: center;
+  color: var(--bg-secondary);
 }
 
-.newscard h5 {
-  margin-top: 10px;
+.newscard{
+  margin-bottom: 16px;
+}
+
+.newscontainer h4{
+  font-size: 24px;
+}
+
+.newscard h5{
+  font-size: 16px;
   font-weight: 600;
-}
-
-.newscard p {
-  margin-bottom: 10px;
 }
 
 .newscard a {
@@ -100,4 +101,74 @@ li, a {
 
 .newscard a:hover {
   text-decoration: underline;
+}
+
+/* Conteúdo central */
+
+button {
+  padding: 1rem;
+  background-color: var(--bg-secondary);
+  color: var(--bg-color);
+  font-size: 16px;
+  font-family: var(--font);
+  font-weight: 700;
+  border: none;
+  border-radius: 32px;
+  cursor: pointer;
+  transition: .4s;
+}
+
+button:hover {
+    transform: scale(1.10);
+}
+
+.midcontainer {
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.midcontainer h2{
+  color: var(--bg-secondary);
+}
+
+.midcontainer .flex{
+  gap: 64px;
+}
+
+.midcontainer .flex .card1{
+  padding: 3%;
+  background-color: var(--bg-secondary);
+  color: var(--bg-color);
+  border-radius: 32px;
+}
+
+.midcontainer h3{
+  font-size: 24px;
+  margin-bottom: 0px;
+}
+
+.midcontainer p{
+  font-size: 16px;
+}
+
+/* Contêineres flex para alinhamento de ícones e dados */
+.carddata, .btndownload, .localizacao, .feedback {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 24px;
+  padding: 5%;
+  background-color: var(--bg-color-faded);
+}
+
+.star{
+  display: flex;
+  align-items: center;
+  padding: 5%;
+}
+
+.carddata p, .btndownload p, .localizacao p, .feedback p, .dadosmedico {
+  margin: 0;
 }

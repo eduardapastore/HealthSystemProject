@@ -1,3 +1,20 @@
+/* Estilos gerais */
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600&display=swap');
+
+* {
+  --font: 'Sora', sans-serif;
+  --bg-color: #DFD9F1;
+  --bg-color-faded: #dfd9f139;
+  --btn-color: #211847;
+  --bg-secondary: #4037A0;
+  --shadow-color: #21184752;
+  --bgnews: #4037a052;
+}
+
+html{
+  font-family: var(--font);
+}
+
 .app-container {
     display: flex;
     height: 100vh;
