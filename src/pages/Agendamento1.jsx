@@ -1,5 +1,5 @@
-import user from '../assets/user.png'
-import './styles/Agendamento1.css'
+import { Calendar, User, Star, ChevronDown } from 'lucide-react';
+import './styles/Agendamento1.css';
 
 const AppointmentCard = ({ specialty, date, time, doctor, rating }) => (
   <div className="appointment-card">
@@ -50,9 +50,6 @@ const MedicalAppointmentScheduler = () => {
           <div className="header-buttons">
             <button>Exames</button>
             <button>Cirurgias</button>
-            <div className="user-icon">
-              <img src={user || <User />} alt="imagem do usuário" />
-            </div>
           </div>
         </header>
 
