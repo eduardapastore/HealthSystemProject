@@ -11,176 +11,60 @@
   --bgnews: #4037a052;
 }
 
-html{
-  font-family: var(--font);
+.flex{
+  display: flex;
 }
 
-.app-container {
-    display: flex;
-    height: 100vh;
-    background-color: #f3f4f6;
-  }
+html, body {
+  font-family: var(--font);
+  background-color: var(--bg-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200vh;
+  height: 100vh;
+}
 
-  .sidebar {
-    width: 250px;
-    background-color: #4f46e5;
-    color: white;
-    padding: 24px;
-  }
+li, a {
+  list-style-type: none;
+  text-decoration: none;
+}
 
-  .sidebar h2 {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 24px;
-  }
+.menu {
+  color: var(--bg-secondary);
+  width: 20%;
+  margin-top: 40px;
+}
 
-  .sidebar ul {
-    list-style-type: none;
-    padding: 0;
-  }
+.menu h1 {
+  margin-bottom: 64px;
+  font-weight: 600;
+  font-size: 24px;
+}
 
-  .sidebar li {
-    padding: 8px 16px;
-    margin-bottom: 8px;
-    cursor: pointer;
-  }
+.menu .logout {
+  margin-top: 100px;
+  font-size: 18px;
+}
 
-  .sidebar li:hover {
-    background-color: #4338ca;
-    border-radius: 4px;
-  }
+.menu ul {
+  margin-bottom: 16px;
+  color: var(--btn-color);
+  font-size: 18px;
+  padding: 1rem;
+  list-style-type: none;
+  transition: color 0.2s, transform 0.2s, padding-left 0.2s;
+}
 
-  .logout-button {
-    display: flex;
-    align-items: center;
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
-    margin-top: 32px;
-  }
+.menu ul:hover {
+  transform: scale(1.05);
+  font-weight: 600;
+  color: var(--bg-secondary);
+  background-color: #4037a052;
+  padding-left: 10px;
+}
 
-  .logout-button svg {
-    width: 16px;
-    height: 16px;
-    margin-left: 8px;
-  }
-
-  .main-content {
-    flex: 1;
-    padding: 32px;
-  }
-
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 32px;
-  }
-
-  header h1 {
-    font-size: 24px;
-    font-weight: bold;
-    color: #4f46e5;
-  }
-
-  .header-buttons {
-    display: flex;
-    gap: 16px;
-  }
-
-  .header-buttons button {
-    padding: 8px 16px;
-    background-color: white;
-    color: #4f46e5;
-    border: none;
-    border-radius: 9999px;
-    cursor: pointer;
-  }
-
-  .user-icon {
-    width: 40px;
-    height: 40px;
-    background-color: #4f46e5;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .user-icon svg {
-    color: white;
-  }
-
-  .appointments-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-  }
-
-  .appointment-card {
-    background-color: white;
-    border-radius: 8px;
-    padding: 16px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  }
-
-  .appointment-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 8px;
-  }
-
-  .appointment-header h3 {
-    font-size: 18px;
-    font-weight: 600;
-    color: #4f46e5;
-  }
-
-  .appointment-detail {
-    display: flex;
-    align-items: center;
-    margin-bottom: 4px;
-  }
-
-  .appointment-detail .icon {
-    width: 16px;
-    height: 16px;
-    margin-right: 8px;
-    color: #4f46e5;
-  }
-
-  .rating {
-    display: flex;
-    align-items: center;
-  }
-
-  .rating .star-filled {
-    color: #fbbf24;
-  }
-
-  .rating .star-empty {
-    color: #d1d5db;
-  }
-
-  .rating span {
-    margin-left: 4px;
-    font-size: 14px;
-    color: #6b7280;
-  }
-
-  .schedule-button {
-    margin-top: 32px;
-    padding: 12px 24px;
-    background-color: #4f46e5;
-    color: white;
-    border: none;
-    border-radius: 9999px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-
-  .schedule-button:hover {
-    background-color: #4338ca;
-  }
+.menu ul a {
+  color: inherit;
+  text-decoration: none;
+}
