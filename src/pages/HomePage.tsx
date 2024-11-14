@@ -1,18 +1,18 @@
 "use-client"
-
-import { useState } from 'react';
+//links
 import Link from 'next/link';
+
+//elementos visuais
+import "@/app/globals.css";
 import Image from 'next/image';
 import { FaCalendarAlt, FaFilePdf, FaSignOutAlt, FaStar } from 'react-icons/fa';
 import { FaLocationPinLock } from 'react-icons/fa6';
 import Avatar4 from "@/assets/avatar-4.png";
 import news1 from "@/assets/news-1.png";
 import news2 from "@/assets/news-2.png";
-import "@/app/globals.css";
 import { Sora } from 'next/font/google';
 import { twMerge } from 'tailwind-merge';
 
-// Carregar a fonte Sora
 const sora = Sora({ subsets: ["latin"] });
 
 const HomePage: React.FC = () => {

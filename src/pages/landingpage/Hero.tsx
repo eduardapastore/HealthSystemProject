@@ -16,7 +16,7 @@ export const Hero = () => {
             Simplificamos o acesso aos serviços médicos com tecnologia inteligente e intuitiva.
             </p>
             <div className="flex gap-1 items-center mt-[30px] text-xl ">
-            <Link href="/LoginPage" className="bg-blue-800 text-white px-4 py-2 rounded-full font-medium inline-flex items-center justify-center hover:scale-110 transform transition-transform duration-300">
+            <Link href="/Cadastro" className="bg-blue-800 text-white px-4 py-2 rounded-full font-medium inline-flex items-center justify-center hover:scale-110 transform transition-transform duration-300">
                 Faça seu Cadastro!
             </Link>
             </div>

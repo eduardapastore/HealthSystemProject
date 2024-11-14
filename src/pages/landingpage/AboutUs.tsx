@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 
 export const AboutUs = () => {
   return (
@@ -9,10 +10,12 @@ export const AboutUs = () => {
           No coração da inovação em saúde, nosso serviço de melhoria tecnológica para hospitais redefine a experiência do paciente e a eficiência dos profissionais de saúde em nossa cidade. Com uma plataforma inteligente e intuitiva, conectamos você aos serviços médicos de maneira mais ágil e eficaz.
           </p>
           <div className="flex justify-center">
-          <a href="/LoginPage" className="items-center">
-              <button className="mt-5 bg-blue-900 text-white text-xl px-6 py-4 rounded-full font-medium inline-flex hover:scale-110 transform transition-transform duration-300">
-                Conheça mais!
-              </button>
+          <a className="items-center">
+              <Link href="/Cadastro">
+                <button className="mt-5 bg-blue-900 text-white text-xl px-6 py-4 rounded-full font-medium inline-flex hover:scale-110 transform transition-transform duration-300">
+                  Conheça mais!
+                </button>
+              </Link>
           </a>
           </div>
         </section>

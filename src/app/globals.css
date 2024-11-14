@@ -1,6 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600&display=swap');
+
+*{
+  --font: 'Sora', sans-serif;
+}
 
 @layer components {
   .btn {
@@ -37,5 +42,12 @@
 
   .card {
     @apply p-10 border border-[#222222]/10 rounded-3xl shadow-[0_7px_14px_#EAEAEA] max-w-xs w-full;
+  }
+
+  html, body{
+    background-color: #dbeafe;
+    margin: 0;
+    height: 100%;
+    font-family: var(--font);
   }
 }

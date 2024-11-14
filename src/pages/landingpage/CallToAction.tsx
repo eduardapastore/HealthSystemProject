@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
+import { Link } from "lucide-react";
 import { useRef } from "react";
 
 export const CallToAction = () => {
@@ -26,7 +27,7 @@ export const CallToAction = () => {
 
         </div>
         <div className="flex gap-2 mt-10 mb-10 justify-center">
-          <a href="/LoginPage"><button className="btn btn-primary mt-5 bg-blue-900 text-white text-xl px-6 py-4 rounded-full font-medium inline-flex hover:scale-110 transform transition-transform duration-300">Cadastre-se agora!</button></a>
+          <Link href="/Cadastro"><button className="btn btn-primary mt-5 bg-blue-900 text-white text-xl px-6 py-4 rounded-full font-medium inline-flex hover:scale-110 transform transition-transform duration-300">Cadastre-se agora!</button></Link>
         </div>
       </div>
     </section>
