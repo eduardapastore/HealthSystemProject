@@ -6,18 +6,20 @@ import { Sora } from "next/font/google";
 import "@/app/globals.css";
 import { FaArrowLeft, FaArrowCircleDown } from 'react-icons/fa';
 import { twMerge } from "tailwind-merge";
-import jsPDF from 'jspdf';
 
 const sora = Sora({ subsets: ["latin"] });
 
 const Agendamento2: React.FC = () => {
+  
   // Estados para controlar a visibilidade dos dropdowns
   const [isProcedureOpen, setIsProcedureOpen] = useState(false);
   const [isAreaOpen, setIsAreaOpen] = useState(false);
+  const [isDoctorOpen, setIsDoctorOpen] = useState(false);
 
   // Estados para controlar a opção selecionada em cada dropdown
   const [selectedProcedure, setSelectedProcedure] = useState<string | null>(null);
   const [selectedArea, setSelectedArea] = useState<string | null>(null);
+  const [selectedDoctor, setSelectedDoctor] = useState<string | null>(null);
   const [selectedDate, setSelectedDate] = useState<string>("");
   const [selectedTime, setSelectedTime] = useState<string>("");
 
@@ -26,42 +28,52 @@ const Agendamento2: React.FC = () => {
     "Alergia e Imunologia": {
       dates: ["2024-12-10", "2024-12-11", "2024-12-12"],
       times: ["10:00", "14:00", "15:00", "18:00"],
+      doctors: ["Dr. Silva", "Dra. Mendes"]
     },
     "Angiologia": {
       dates: ["2024-12-10", "2024-12-11", "2024-12-12"],
       times: ["10:00", "14:00", "15:00", "18:00"],
+      doctors: ["Dr. Rocha", "Dra. Souza"]
     },
     "Cardiologia": {
       dates: ["2024-12-10", "2024-12-11", "2024-12-12"],
       times: ["10:00", "14:00", "15:00", "18:00"],
+      doctors: ["Dr. Cardoso", "Dra. Almeida"]
     },
     "Dermatologia": {
       dates: ["2024-12-10", "2024-12-11", "2024-12-12"],
       times: ["10:00", "14:00", "15:00", "18:00"],
+      doctors: ["Dr. Silva", "Dra. Mendes"]
     },
     "Gastrologia": {
       dates: ["2024-12-10", "2024-12-11", "2024-12-12"],
       times: ["10:00", "14:00", "15:00", "18:00"],
+      doctors: ["Dr. Rocha", "Dra. Souza"]
     },
     "Geriatria": {
       dates: ["2024-12-10", "2024-12-11", "2024-12-12"],
       times: ["10:00", "14:00", "15:00", "18:00"],
+      doctors: ["Dr. Cardoso", "Dra. Almeida"]
     },
     "Ginecologia": {
       dates: ["2024-12-10", "2024-12-11", "2024-12-12"],
       times: ["10:00", "14:00", "15:00", "18:00"],
+      doctors: ["Dr. Silva", "Dra. Mendes"]
     },
     "Nutrologia": {
       dates: ["2024-12-10", "2024-12-11", "2024-12-12"],
       times: ["10:00", "14:00", "15:00", "18:00"],
+      doctors: ["Dr. Rocha", "Dra. Souza"]
     },
     "Oftalmologia": {
       dates: ["2024-12-10", "2024-12-11", "2024-12-12"],
       times: ["10:00", "14:00", "15:00", "18:00"],
+      doctors: ["Dr. Cardoso", "Dra. Almeida"]
     },
     "Ortopedia": {
       dates: ["2024-12-10", "2024-12-11", "2024-12-12"],
       times: ["10:00", "14:00", "15:00", "18:00"],
+      doctors: ["Dr. Silva", "Dra. Mendes"]
     },
   };
 
@@ -94,6 +106,17 @@ const Agendamento2: React.FC = () => {
     setSelectedDate(e.target.value);
   };
 
+   // Função para alternar a visibilidade do menu de médicos
+   const toggleDoctorDropdown = () => {
+    setIsDoctorOpen(!isDoctorOpen);
+  };
+
+   // Função para marcar a opção de médico selecionado
+   const handleDoctorSelect = (doctor: string) => {
+    setSelectedDoctor(doctor);
+    setIsDoctorOpen(false); // Fecha o dropdown após selecionar
+  };
+
   // Função para atualizar o horário selecionado
   const handleTimeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedTime(e.target.value);
@@ -101,10 +124,10 @@ const Agendamento2: React.FC = () => {
 
   // Função para exibir os dados na tabela
   const renderTable = () => {
-    if (!selectedArea || !selectedDate || !selectedTime || !selectedProcedure) {
+    if (!selectedArea || !selectedDate || !selectedTime || !selectedProcedure || !selectedDoctor) {
       return (
         <tr>
-          <td className="border-b px-6 py-4 text-blue-800 text-center" colSpan={4}>
+          <td className="border-b px-6 py-4 text-blue-800 text-center" colSpan={5}>
             Por favor, selecione todas as opções acima para visualizar seu agendamento.
           </td>
         </tr>
@@ -117,52 +140,10 @@ const Agendamento2: React.FC = () => {
         <td className="border-b px-6 py-4 text-left">{selectedDate}</td>
         <td className="border-b px-6 py-4 text-left">{selectedTime}</td>
         <td className="border-b px-6 py-4 text-left">{selectedArea}</td>
+        <td className='border-b px-6 py-4 text-left'>{selectedDoctor}</td>
       </tr>
     );
   };
-
-  const handleConfirm = async () => {
-  if (!selectedProcedure || !selectedArea || !selectedDate || !selectedTime) {
-    alert("Por favor, selecione todas as opções antes de confirmar.");
-    return;
-  }
-
-  // Enviar os dados para o backend
-  const appointmentData = {
-    procedure: selectedProcedure,
-    area: selectedArea,
-    date: selectedDate,
-    time: selectedTime,
-  };
-
-  try {
-    // Envio para o endpoint da API
-    const response = await fetch('/api/appointments', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(appointmentData),
-    });
-
-    if (!response.ok) {
-      throw new Error("Erro ao salvar no banco de dados");
-    }
-
-    // Gerar o PDF
-    const doc = new jsPDF();
-    doc.text("Comprovante de Agendamento", 10, 10);
-    doc.text(`Procedimento: ${selectedProcedure}`, 10, 20);
-    doc.text(`Área Médica: ${selectedArea}`, 10, 30);
-    doc.text(`Data: ${selectedDate}`, 10, 40);
-    doc.text(`Horário: ${selectedTime}`, 10, 50);
-    doc.save("comprovante_agendamento.pdf");
-    
-    alert("Agendamento confirmado com sucesso!");
-  } catch (error) {
-    console.error("Erro ao confirmar o agendamento:", error);
-  }
-};
 
   return (
     <section className={twMerge(sora.className, 'bg-blue-100 h-screen p-10')}>
@@ -262,13 +243,39 @@ const Agendamento2: React.FC = () => {
                 </select>
               </>
             )}
+
+             {/* SELEÇÃO DE MÉDICO */}
+        {selectedArea && (
+              <>
+                <div className='bg-inherit p-3'>
+                  <h2 className='text-2xl font-semibold text-blue-50 mt-4 mb-4'>Selecione o Médico</h2>
+                  <button onClick={toggleDoctorDropdown} className="flex items-center gap-4 text-blue-50 text-x p-2 w-full rounded-md">
+                    {selectedDoctor ? selectedDoctor : 'Escolha aqui'}
+                    <FaArrowCircleDown />
+                  </button>
+
+                  {isDoctorOpen && (
+                    <ul className="text-blue-50 p-4 rounded-xl max-h-60 overflow-y-auto">
+                      {(availability[selectedArea]?.doctors || []).map((doctor) => (
+                        <li
+                          key={doctor}
+                          onClick={() => handleDoctorSelect(doctor)}
+                          className={`p-2 mb-1 rounded-xl border-2 ${selectedDoctor === doctor}`}
+                        >
+                          <a href="#" className="block py-2">{doctor}</a>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              </>
+            )}
           </div>
         </section>
 
         {/* TABELA DE RESU MO DE AGENDAMENTO */}
         <section id="agendamento">
-          {/*ESCOLHA DE MÉDICO */}
-          
+
           <div className="overflow-x-auto rounded-2xl shadow-blue-300 shadow-md">
             <table className="min-w-full bg-blue-50 border-collapse  ">
               <thead>
@@ -277,6 +284,7 @@ const Agendamento2: React.FC = () => {
                   <th className="px-6 py-4 text-xl bg-blue-800 text-blue-50 text-left">Data</th>
                   <th className="px-6 py-4 text-xl bg-blue-800 text-blue-50 text-left">Horário</th>
                   <th className="px-6 py-4 text-xl bg-blue-800 text-blue-50 text-left">Área</th>
+                  <th className="px-6 py-4 text-xl bg-blue-800 text-blue-50 text-left">Médico</th>
                 </tr>
               </thead>
               <tbody>
@@ -294,3 +302,5 @@ const Agendamento2: React.FC = () => {
 };
 
 export default Agendamento2;
+
+

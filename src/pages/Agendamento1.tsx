@@ -23,7 +23,7 @@ const Agendamentos: React.FC = () => {
           <h1 className='text-3xl font-bold text-blue-800 mb-4'>Menu</h1>
 
           <ul className='mb-6'>
-            <li className='p-4 text-xl text-blue-600 hover:text-blue-800'><Link href="/Home">Home</Link></li>
+            <li className='p-4 text-xl text-blue-600 hover:text-blue-800'><Link href="/HomePage">Home</Link></li>
             <li className='p-4 text-xl text-blue-600 hover:text-blue-800'><Link href="/Agendamento1">Agendamentos</Link></li>
             <li className='p-4 text-xl text-blue-600 hover:text-blue-800'><Link href="/Resultados">Resultados</Link></li>
             <li className='p-4 text-xl text-blue-600 hover:text-blue-800'><Link href="/Feedbacks">Feedbacks</Link></li>
