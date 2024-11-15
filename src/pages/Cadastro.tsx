@@ -107,11 +107,9 @@ export const Cadastro = () => {
         >
           CADASTRE-SE
         </button>
-        <a href="#" onClick={handleToggleForm} className="mt-2 text-blue-800 hover:underline">
-          <Link href="/LoginPage">
+          <Link className="mt-2 text-blue-800 hover:underline" onClick={handleToggleForm} href="/LoginPage">
             Já tem conta? Faça login
           </Link>
-        </a>
       </div>
 
       {/* Área da Imagem de Fundo */}

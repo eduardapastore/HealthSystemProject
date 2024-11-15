@@ -27,7 +27,7 @@ const HomePage: React.FC = () => {
             <li className='p-4 text-xl text-blue-700 hover:text-blue-800 hover:font-semibold'><Link href="/HomePage">Home</Link></li>
             <li className='p-4 text-xl text-blue-700 hover:text-blue-800 hover:font-semibold'><Link href="/Agendamento1">Agendamentos</Link></li>
             <li className='p-4 text-xl text-blue-700 hover:text-blue-800 hover:font-semibold'><Link href="/Resultados">Resultados</Link></li>
-            <li className='p-4 text-xl text-blue-700 hover:text-blue-800 hover:font-semibold'><Link href="/Feedbacks">Feedbacks</Link></li>
+            <li className='p-4 text-xl text-blue-700 hover:text-blue-800 hover:font-semibold'><Link href="/Feedbacks">Avaliações</Link></li>
             <li className='p-4 text-xl text-blue-700 hover:text-blue-800 hover:font-semibold'><Link href="/Noticias">Notícias</Link></li>
           </ul>
 
