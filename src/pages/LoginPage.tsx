@@ -16,8 +16,7 @@ const LoginPage = () => {
   const [senha, setSenha] = useState('');
 
   const handleLogin = () => {
-    // Aqui você faria uma chamada à API para verificar o login
-    // Se o login for bem-sucedido, redirecionar para a página inicial
+    
     router.push("/HomePage");
   };
 

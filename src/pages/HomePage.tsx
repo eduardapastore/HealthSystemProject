@@ -6,8 +6,8 @@ import Link from 'next/link';
 import "@/app/globals.css";
 import Image from 'next/image';
 import { FaCalendarAlt, FaFilePdf, FaSignOutAlt, FaStar } from 'react-icons/fa';
-import { FaLocationPinLock } from 'react-icons/fa6';
-import Avatar4 from "@/assets/avatar-4.png";
+import { FaLocationPin } from 'react-icons/fa6';
+import avatarmed2 from "@/assets/avatarmed2.png";
 import news1 from "@/assets/news-1.png";
 import news2 from "@/assets/news-2.png";
 import { Sora } from 'next/font/google';
@@ -17,79 +17,82 @@ const sora = Sora({ subsets: ["latin"] });
 
 const HomePage: React.FC = () => {
   return (
-    <div className="bg-blue-50 items-center">
+    <div className="bg-blue-50 items-center h-screen w-screen gap-10">
       <section className={twMerge(sora.className, "flex antialiased h-screen p-10 gap-10")}>
         {/* Menu de navegação */}
-        <div className="w-1/4 justify-around">
-          <h1 className="text-blue-800 text-2xl">Menu</h1>
-          <ul><Link href="/HomePage">Home</Link></ul>
-          <ul><Link href="/Agendamento1">Agendamentos</Link></ul>
-          <ul><Link href="/TelaResultados">Resultados</Link></ul>
-          <ul><Link href="">Feedbacks</Link></ul>
-          <ul><Link href="">Notícias</Link></ul>
+        <div id='menu' className="flex flex-col justify-between p-4 w-1/4 h-full">
+          <h1 className='text-3xl font-bold text-blue-800 mb-4'>Menu</h1>
 
-          <Link href="/LoginPage" className='flex'>
-            <button>
-              Sair
-            </button>
-            <FaSignOutAlt />
-          </Link>
+          <ul className='mb-6'>
+            <li className='p-4 text-xl text-blue-700 hover:text-blue-800 hover:font-semibold'><Link href="/HomePage">Home</Link></li>
+            <li className='p-4 text-xl text-blue-700 hover:text-blue-800 hover:font-semibold'><Link href="/Agendamento1">Agendamentos</Link></li>
+            <li className='p-4 text-xl text-blue-700 hover:text-blue-800 hover:font-semibold'><Link href="/Resultados">Resultados</Link></li>
+            <li className='p-4 text-xl text-blue-700 hover:text-blue-800 hover:font-semibold'><Link href="/Feedbacks">Feedbacks</Link></li>
+            <li className='p-4 text-xl text-blue-700 hover:text-blue-800 hover:font-semibold'><Link href="/Noticias">Notícias</Link></li>
+          </ul>
+
+          <button className='flex items-center gap-6 p-2 text-2xl text-blue-600 hover:text-blue-800 hover:font-semibold'>
+            <FaSignOutAlt /> <Link href="/LoginPage">Sair</Link>
+          </button>
         </div>
 
         {/* Card de Consultas */}
-        <div className="midcontainer">
-          <h2>Próxima(s) Consulta(s)</h2>
-          <div className="flex">
-            <div className="card1">
-              <div className="flex">
-                <div className="dadosmedico">
-                  <h3>DR. Alexandre Bastos Oliveira</h3>
-                  <p>Clínico Geral</p>
-                  <div className="carddata">
+        <div className="w-1/2">
+          <h2 className='text-3xl font-bold mb-8 text-blue-800'>Próxima(s) Consulta(s)</h2>
+          
+          <div className="flex gap-30 mb-6 bg-blue-800 p-6 rounded-3xl items-center text-blue-50">
+              {/* Informações do médico */}
+              <div className="flex-grow">
+                <h3 className="text-2xl font-bold">DR. Alexandre Bastos Oliveira</h3>
+                <p className="mb-5">Clínico Geral</p>
+                <div className="carddata">
+                  <div className="items-center text-lg p-5 flex gap-2 bg-blue-600 rounded-lg mb-5">
                     <FaCalendarAlt />
-                    <div className="dados_data">
-                      <p>18 | SET, 9:00</p>
-                    </div>
-                    <FaLocationPinLock />
-                    <p>Rua da Alegria, 123</p>
+                    <p>18 | SET, 9:00</p>
                   </div>
-                </div>
-
-                <div className="img_feedback">
-                  <Image src={Avatar4} height={50} width={50} alt="Avatar" />
-                  <div className="star">
-                    <FaStar />
-                    <p>4.8</p>
+                  <div className="flex items-center gap-2 mb-5">
+                    <FaLocationPin className='text-lg' />
+                    <p className='text-lg text-right'>Rua da Alegria, 123</p>
                   </div>
                 </div>
               </div>
+
+              {/* Imagem do médico (Avatar) e nota */}
+              <div className="flex flex-col items-center ml-6">
+                <Image src={avatarmed2} height={150} width={150} alt="Avatar" className="rounded-full" />
+                <div className="flex mt-3">
+                  <FaStar />
+                  <p className="ml-1">4.8</p>
+                </div>
+              </div>
             </div>
-          </div>
+
+          
 
           {/* Resultados Recentes */}
           <div className="resultadosrecentes">
-            <h2>Resultado(s) Recente(s)</h2>
-            <div className="flex">
+            <h2 className='text-3xl mb-6 font-bold text-blue-900'>Resultado(s) Recente(s)</h2>
+            <div className="flex gap-10 justify-between mb-6 text-blue-900">
               <p>2024_08_16 Hemograma</p>
-              <div className="btndownload">
+              <div className="flex gap-4 items-center hover:font-semibold">
                 <FaFilePdf />
                 <a href="#">
                   <p>Baixe Aqui!</p>
                 </a>
               </div>
             </div>
-            <div className="flex">
+            <div className="flex gap-10 justify-between mb-6 text-blue-900">
               <p>2024_08_16 Hemograma</p>
-              <div className="btndownload">
+              <div className="flex gap-4 items-center hover:font-semibold">
                 <FaFilePdf />
                 <a href="#">
                   <p>Baixe Aqui!</p>
                 </a>
               </div>
             </div>
-            <div className="flex">
+            <div className="flex gap-10 justify-between mb-6 text-blue-900">
               <p>2024_08_16 Hemograma</p>
-              <div className="btndownload">
+              <div className="flex gap-4 items-center hover:font-semibold">
                 <FaFilePdf />
                 <a href="#">
                   <p>Baixe Aqui!</p>
@@ -97,29 +100,29 @@ const HomePage: React.FC = () => {
               </div>
             </div>
           </div>
-          <Link href="/Resultados">
-            <button>
-              Todos os Resultados
-            </button>
-          </Link>
+          <div className='mt-6 rounded-full bg-blue-900 text-center text-blue-50 text-xl font-semibold p-5 w-1/2 hover:scale-110 transform transition-transform duration-300'>
+            <Link href="/Resultados">
+                Todos os Resultados
+            </Link>
+          </div>
         </div>
 
         {/* Notícias */}
-        <div className="w-1/4 justify-left">
-          <h4>Notícias Recentes</h4>
+        <div className="w-1/4 justify-left p-5">
+          <h4 className='text-3xl font-bold text-blue-800 mb-8'>Notícias Recentes</h4>
           <div className="newscard">
-            <Image src={news1} alt="Notícia 1" />
-            <h5>Multirão da Oftalmologia</h5>
-            <p>Alagoinhas inicia nos dias 18/10 e 19/10 o multirão de consultas oftalmológicas o público-alvo...</p>
-            <Link href="/Noticias">
+            <Image src={news1} width={300} height={175} alt="Notícia 1" className='mb-2'/>
+            <h5 className='text-xl mb-4 text-blue-900 font-semibold'>Multirão da Oftalmologia</h5>
+            <p className='text-justify'>Alagoinhas inicia nos dias 18/10 e 19/10 o multirão de consultas oftalmológicas o público-alvo...</p>
+            <Link href="/Noticias" className='mt-4 font-semibold text-blue-900'>
               Leia mais
             </Link>
           </div>
           <div className="newscard">
-            <Image src={news2} alt="Notícia 2" />
-            <h5>MPOX - Um perigo mundial?</h5>
-            <p>Saiba mais nesta notícia sobre a doença conhecida como varíola dos macacos que...</p>
-            <Link href="/Noticias">
+            <Image src={news2} alt="Notícia 2" width={300} height={175} className='mb-2 mt-4' />
+            <h5 className='text-xl mb-4 text-blue-900 font-semibold'>MPOX - Um perigo mundial?</h5>
+            <p className='text-justify'>Saiba mais nesta notícia sobre a doença conhecida como varíola dos macacos que...</p>
+            <Link href="/Noticias" className='mt-4 font-semibold text-blue-900'>
               Leia mais
             </Link>
           </div>
