@@ -6,11 +6,66 @@ import { Sora } from "next/font/google";
 import "@/app/globals.css";
 import { FaArrowLeft, FaArrowCircleDown } from 'react-icons/fa';
 import { twMerge } from "tailwind-merge";
+import axios from 'axios';
 
 const sora = Sora({ subsets: ["latin"] });
 
+const Agendamento = async (
+  selectedProcedure: string | null,
+  selectedDate: string,
+  selectedTime: string,
+  selectedArea: string | null,
+  selectedDoctor: string | null
+) => {
+  if (!selectedProcedure || !selectedDate || !selectedTime || !selectedArea || !selectedDoctor) {
+    console.error("Todos os campos precisam ser preenchidos");
+    return; // Impede o envio dos dados se algum campo estiver faltando
+  }
+
+  const agendamentoData = {
+    procedimento: selectedProcedure,
+    data: selectedDate,
+    horario: selectedTime,
+    area: selectedArea,
+    medico: selectedDoctor,
+  };
+
+  try {
+    const userId = localStorage.getItem("userId"); // Recupera o userId do localStorage
+
+    if (!userId) {
+      throw new Error("Usuário não autenticado");
+    }
+
+    const url = `http://localhost:3000/usuarios/${userId}/consultas`; // Substitui o :userId pela variável
+
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(agendamentoData),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.message || 'Erro desconhecido ao criar agendamento');
+    }
+
+    const data = await response.json();
+    console.log('Agendamento realizado com sucesso:', data);
+
+  } catch (error: any) {
+    console.error('Erro ao criar agendamento:', error);
+    alert(`Erro ao agendar consulta: ${error.message || 'Erro desconhecido'}`);
+  }
+};
+
+
+
+
 const Agendamento2: React.FC = () => {
-  
+
   // Estados para controlar a visibilidade dos dropdowns
   const [isProcedureOpen, setIsProcedureOpen] = useState(false);
   const [isAreaOpen, setIsAreaOpen] = useState(false);
@@ -98,7 +153,7 @@ const Agendamento2: React.FC = () => {
     setSelectedArea(option);  // Atualiza a opção de área médica selecionada
     setIsAreaOpen(false);     // Fecha o dropdown após selecionar
     setSelectedDate("");     // Limpa a data e horário quando a área muda
-    setSelectedTime("");     
+    setSelectedTime("");
   };
 
   // Função para atualizar a data selecionada
@@ -106,13 +161,13 @@ const Agendamento2: React.FC = () => {
     setSelectedDate(e.target.value);
   };
 
-   // Função para alternar a visibilidade do menu de médicos
-   const toggleDoctorDropdown = () => {
+  // Função para alternar a visibilidade do menu de médicos
+  const toggleDoctorDropdown = () => {
     setIsDoctorOpen(!isDoctorOpen);
   };
 
-   // Função para marcar a opção de médico selecionado
-   const handleDoctorSelect = (doctor: string) => {
+  // Função para marcar a opção de médico selecionado
+  const handleDoctorSelect = (doctor: string) => {
     setSelectedDoctor(doctor);
     setIsDoctorOpen(false); // Fecha o dropdown após selecionar
   };
@@ -244,8 +299,8 @@ const Agendamento2: React.FC = () => {
               </>
             )}
 
-             {/* SELEÇÃO DE MÉDICO */}
-        {selectedArea && (
+            {/* SELEÇÃO DE MÉDICO */}
+            {selectedArea && (
               <>
                 <div className='bg-inherit p-3'>
                   <h2 className='text-2xl font-semibold text-blue-50 mt-4 mb-4'>Selecione o Médico</h2>
@@ -292,7 +347,16 @@ const Agendamento2: React.FC = () => {
               </tbody>
             </table>
             <div className=' bg-blue-800 p-5'>
-                <button className=' text-blue-50 text-xl font-semibold items-center justify-center w-full'>Confirmar Agendamento!</button>
+              <button
+                onClick={() => {
+                    Agendamento(selectedProcedure, selectedDate, selectedTime, selectedArea, selectedDoctor);
+                  }
+                }
+                className="w-full bg-blue-500 py-2 text-white font-semibold rounded-md mt-4"
+              >
+                Confirmar Agendamento!
+              </button>
+
             </div>
           </div>
         </section>
