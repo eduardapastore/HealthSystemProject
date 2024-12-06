@@ -60,8 +60,8 @@ const Resultados = () => {
           <div className="justify-between h-full">
             <h2 className="text-3xl font-bold text-blue-900 mb-10">Resultados</h2>
 
-            <div className="flex gap-10 justify-between mb-4 text-blue-900">
-              <div className="flex gap-30 mb-4 bg-blue-800 p-4 rounded-3xl items-center text-blue-50">
+            <div className="flex gap-10 justify-between text-blue-900 ">
+              <div className="flex gap-30 mb-4 bg-blue-800 p-4 rounded-3xl items-center text-blue-50 shadow-md">
                 <div className="flex-grow">
                   <h3 className="text-md font-bold">{consultaMaisProxima.medico || "Nome não informado"}</h3>
                   <p className="text-sm mb-2">{consultaMaisProxima.especialidade || "Especialidade não informada"}</p>
