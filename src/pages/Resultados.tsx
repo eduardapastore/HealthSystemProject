@@ -44,9 +44,6 @@ const Resultados = () => {
             <li className="p-4 text-xl text-blue-700 hover:text-blue-800 hover:font-semibold">
               <Link href="/Feedbacks">Avaliações</Link>
             </li>
-            <li className="p-4 text-xl text-blue-700 hover:text-blue-800 hover:font-semibold">
-              <Link href="/Noticias">Notícias</Link>
-            </li>
           </ul>
           <Link href="LoginPage">
             <button className="flex items-center gap-6 p-2 text-2xl text-blue-600 hover:text-blue-800 hover:font-semibold">
