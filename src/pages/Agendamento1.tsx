@@ -7,7 +7,7 @@ import { twMerge } from "tailwind-merge";
 import { format } from 'date-fns';
 import { toZonedTime } from 'date-fns-tz';
 import { ptBR } from 'date-fns/locale';
-r
+
 const formatDate = (dateString: string) => {
   const timeZone = 'America/Sao_Paulo'; 
   const zonedDate = toZonedTime(new Date(dateString), timeZone);
