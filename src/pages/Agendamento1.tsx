@@ -1,5 +1,3 @@
-"use client";
-
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { FaSignOutAlt } from 'react-icons/fa';
@@ -7,19 +5,27 @@ import { Sora } from "next/font/google";
 import "@/app/globals.css";
 import { twMerge } from "tailwind-merge";
 import { format } from 'date-fns';
+import { toZonedTime } from 'date-fns-tz';
 import { ptBR } from 'date-fns/locale';
 
 const formatDate = (dateString: string) => {
-  const date = new Date(dateString);
-  return format(date, "eeee, dd 'de' MMMM 'de' yyyy 'às' HH:mm", { locale: ptBR });
+  const timeZone = 'America/Sao_Paulo'; 
+  const zonedDate = toZonedTime(new Date(dateString), timeZone);
+  return format(zonedDate, "eeee, dd 'de' MMMM 'de' yyyy 'às' ", { locale: ptBR });
+};
+
+const formatHorario = (horario: string) => {
+  const timeZone = 'America/Sao_Paulo'; 
+  const zonedDate = toZonedTime(new Date(`1970-01-01T${horario}:00`), timeZone);
+  return format(zonedDate, 'HH:mm', { locale: ptBR });
 };
 
 const sora = Sora({ subsets: ["latin"] });
 
 const Agendamentos: React.FC = () => {
-  const [consultas, setConsultas] = useState<any[]>([]);  // Estado para armazenar as consultas
-  const [loading, setLoading] = useState(true);  // Estado para controlar o carregamento
-  const [error, setError] = useState<string | null>(null);  // Estado para mensagens de erro
+  const [consultas, setConsultas] = useState<any[]>([]);  
+  const [loading, setLoading] = useState(true);  
+  const [error, setError] = useState<string | null>(null);  
 
   const Consultas = async () => {
     try {
@@ -30,7 +36,6 @@ const Agendamentos: React.FC = () => {
       }
 
       const consultasResponse = await fetch(`http://localhost:3000/usuarios/${userId}/consultas`);
-
       const consultasData = await consultasResponse.json();
 
       if (!consultasResponse.ok) {
@@ -81,7 +86,9 @@ const Agendamentos: React.FC = () => {
                 <ul>
                   {consultas.map((consulta, index) => (
                     <li key={index} className="py-2 border-b">
-                      <p className="text-blue-800">{consulta.procedimento} - {formatDate(consulta.data)}</p>
+                      <p className="text-blue-800">
+                        {consulta.procedimento} - {formatDate(consulta.data)}  {formatHorario(consulta.horario)}
+                      </p>
                     </li>
                   ))}
                 </ul>
